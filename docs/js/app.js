@@ -157,7 +157,7 @@ postBtn.on('click', function() {
     };
 
 
-    fetch('https://localhost:3000/api', {
+    fetch('http://localhost:3000/api', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -180,7 +180,7 @@ postBtn.on('click', function() {
 function getMensajes() {
 
     
-    fetch('https://localhost:3000/api')
+    fetch('http://localhost:3000/api')
         .then( res => res.json() )
         .then( posts => {
 
@@ -272,7 +272,7 @@ function checkNotificationSubscription() {
 
 
 function getPublicKey() {
-    return fetch('https://localhost:3000/api/key')
+    return fetch('http://localhost:3000/api/key')
         .then(res => res.arrayBuffer())
         .then(buffer => new Uint8Array(buffer));
 }
@@ -290,7 +290,7 @@ btnDesactivadas.on('click', function() {
             })
             .then(res => res.toJSON())
             .then(subscription => {
-                fetch('https://localhost:3000/api/subscribe', {
+                fetch('http://localhost:3000/api/subscribe', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json'},
                     body: JSON.stringify(subscription)
