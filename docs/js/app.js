@@ -157,7 +157,7 @@ postBtn.on('click', function() {
     };
 
 
-    fetch('https://rlunamendoza.github.io/twittor11/api', {
+    fetch('https://localhost:8080/api', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -179,12 +179,8 @@ postBtn.on('click', function() {
 // Obtener mensajes del servidor
 function getMensajes() {
 
-    let apiUri = 'https://rlunamendoza.github.io/twittor11/api';
-    if ( url.includes('localhost') ) {
-        apiUri = 'http://localhost:3000/api';
-    }
-
-    fetch(apiUri)
+    
+    fetch('https://localhost:8080/api')
         .then( res => res.json() )
         .then( posts => {
 
@@ -276,7 +272,7 @@ function checkNotificationSubscription() {
 
 
 function getPublicKey() {
-    return fetch('api/key')
+    return fetch('https://localhost:8080/api/key')
         .then(res => res.arrayBuffer())
         .then(buffer => new Uint8Array(buffer));
 }
@@ -294,7 +290,7 @@ btnDesactivadas.on('click', function() {
             })
             .then(res => res.toJSON())
             .then(subscription => {
-                fetch('api/subscribe', {
+                fetch('https://localhost:8080/api/subscribe', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json'},
                     body: JSON.stringify(subscription)

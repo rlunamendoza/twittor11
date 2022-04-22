@@ -82,7 +82,7 @@ self.addEventListener( 'fetch', e => {
 
     let respuesta;
 
-    if ( e.request.url.includes('https://rlunamendoza.github.io/twittor11/api') ) {
+    if ( e.request.url.includes('api') ) {
 
         // return respuesta????
         respuesta = manejoApiMensajes( DYNAMIC_CACHE, e.request );
