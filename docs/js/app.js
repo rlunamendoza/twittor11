@@ -157,7 +157,7 @@ postBtn.on('click', function() {
     };
 
 
-    fetch('api', {
+    fetch('https://rlunamendoza.github.io/twittor11/api', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -179,7 +179,12 @@ postBtn.on('click', function() {
 // Obtener mensajes del servidor
 function getMensajes() {
 
-    fetch('api')
+    let apiUri = 'https://rlunamendoza.github.io/twittor11/api';
+    if ( url.includes('localhost') ) {
+        apiUri = 'http://localhost:3000/api';
+    }
+
+    fetch(apiUri)
         .then( res => res.json() )
         .then( posts => {
 
@@ -193,7 +198,7 @@ function getMensajes() {
 
 }
 
-// getMensajes();
+getMensajes();
 
 
 

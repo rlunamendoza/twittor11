@@ -31,7 +31,7 @@ function postearMensajes() {
 
             const doc = row.doc;
 
-            const fetchPom =  fetch('api', {
+            const fetchPom =  fetch('https://rlunamendoza.github.io/twittor11/api', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
